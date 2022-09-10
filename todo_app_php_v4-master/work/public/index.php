@@ -25,11 +25,20 @@ function h($str)
   return htmlspecialchars($str, ENT_QUOTES, 'UTF-8');
 }
 
+function addTodo($pdo)
+{
+  
+}
+
 function getTodos($pdo)
 {
   $stmt = $pdo->query("SELECT * FROM todos ORDER BY id DESC");
   $todos = $stmt->fetchAll();
   return $todos;
+}
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  addTodo($pdo);
 }
 
 $todos = getTodos($pdo);
@@ -44,6 +53,10 @@ $todos = getTodos($pdo);
 </head>
 <body>
   <h1>Todos</h1>
+
+  <form action="" method="post">
+    <input type="text" name="title" placeholder="Type new todo.">
+  </form>
 
   <ul>
     <?php foreach ($todos as $todo): ?>
