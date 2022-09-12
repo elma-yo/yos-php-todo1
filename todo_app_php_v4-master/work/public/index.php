@@ -2,12 +2,12 @@
 
 require_once(__DIR__ . '/../app/config.php');
 
-createToken();
+Token::create();
 
 $pdo = getPdoInstance();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-  validateToken();
+  Token::validate();
   $action = filter_input(INPUT_GET, 'action');
 
   switch ($action) {
@@ -55,7 +55,7 @@ $todos = getTodos($pdo);
           <input type="hidden" name="id" value="<?= Utils::h($todo->id); ?>">
           <input type="hidden" name="token" value="<?= Utils::h($_SESSION['token']); ?>">
         </form>
-        
+
         <span class="<?= $todo->is_done ? 'done' : ''; ?>">
           <?= Utils::h($todo->title); ?>
         </span>
