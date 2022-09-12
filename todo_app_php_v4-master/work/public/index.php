@@ -55,5 +55,7 @@ $todos = getTodos($pdo);
     </li>
     <?php endforeach; ?>
   </ul>
+
+  <script src="js/main.js"></script>
 </body>
 </html>
