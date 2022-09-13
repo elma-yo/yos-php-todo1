@@ -4,23 +4,20 @@
     const checkboxes = document.querySelectorAll('input[type="checkbox"]');
     checkboxes.forEach(checkbox => {
         checkbox.addEventListener('change', () => {
-            checkbox.parentNode.submit();
-                const url = '?action=toggle';
-                const option = {
-                    method: 'POST',
-                    body: new URLSearchParams({
-                        id: ,
-                        token: ,
-                    }),
-                }
-                fetch(url, option);
+            fetch('?action=toggle', {
+                method: 'POST',
+                body: new URLSearchParams({
+                    id: checkbox.dataset.id,
+                    token: checkbox.dataset.token,
+                }),
+            });
         });
     });
 
     const deletes = document.querySelectorAll('.delete');
     deletes.forEach(span => {
         span.addEventListener('click', () => {
-            if (!(confirm('Are you sure?'))) {
+            if (!confirm('Are you sure?')) {
                 return;
             }
             span.parentNode.submit();
@@ -29,9 +26,9 @@
 
     const purge = document.querySelector('.purge');
     purge.addEventListener('click', () => {
-        if (!(confirm('Are you sure?'))) {
+        if (!confirm('Are you sure?')) {
             return;
         }
-        purge.parentNode.submit()
-    })
+        purge.parentNode.submit();
+    });
 }
