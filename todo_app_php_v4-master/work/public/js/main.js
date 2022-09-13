@@ -3,8 +3,19 @@
 {
     const token = document.querySelector('main').dataset.token;
     const input = document.querySelector('[name="title"]');
+    const ul = ul.insertBefore(li, ul.firstChild);
 
     input.focus();
+
+    ul.addEventListener('click', e => {
+        if (e.target.type === 'checkbox') {
+
+        }
+
+        if (e.target.classList.contains('delete')) {
+            
+        }
+    });
 
     function addTodo(id, titleValue) {
         const li = document.createElement('li');
@@ -21,7 +32,6 @@
         li.appendChild(deleteSpan);
 
         const ul = document.querySelector('ul');
-        ul.insertBefore(li, ul.firstChild);
     }
 
     document.querySelector('form').addEventListener('submit', e => {
