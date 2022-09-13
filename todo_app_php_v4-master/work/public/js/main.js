@@ -7,12 +7,6 @@
     input.focus();
 
     function addTodo(id) {
-        // <li data-id="">
-        //     <input type="checkbox">
-        //     <span></span>
-        //     <span class="delete">x</span>
-        // </li>
-
         const li = document.createElement('li');
         li.dataset.id = id;
         const checkbox = document.createElement('input');
@@ -21,6 +15,13 @@
         title.textContent = input.value;
         const deleteSpan = document.createElement('span');
         deleteSpan.classList.add('delete');
+
+        li.appendChild(checkbox);
+        li.appendChild(title);
+        li.appendChild(deleteSpan);
+
+        const ul = document.querySelector('ul');
+        ul.insertBefore(li, ul.firstChild);
     }
 
     document.querySelector('form').addEventListener('submit', e => {
