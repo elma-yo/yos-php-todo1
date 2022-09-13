@@ -21,12 +21,12 @@ class Todo
       switch ($action) {
         case 'add':
           $id = $this->add();
-          header('Contnet-Type: application/json');
+          header('Content-Type: application/json');
           echo json_encode(['id' => $id]);
           break;
         case 'toggle':
           $isDone = $this->toggle();
-          header('Contnet-Type: application/json');
+          header('Content-Type: application/json');
           echo json_encode(['is_done' => $isDone]);
           break;
         case 'delete':
