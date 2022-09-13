@@ -15,6 +15,15 @@
                     id: e.target.parentNode.dataset.id,
                     token: token,
                 }),
+            })
+            .then(response => {
+                if(!response.ok) {
+                    throw new Error('This todo has been deleted!');
+                }
+            })
+            .catch(err => {
+                alert(err.message);
+                location.reload();
             });
         }
 
