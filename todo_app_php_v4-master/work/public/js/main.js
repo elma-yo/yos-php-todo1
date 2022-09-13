@@ -12,6 +12,10 @@
                 title: document.querySelector('[name="title').value,
                 token: token,
             }),
+        })
+        .then(response => response.json())
+        .then(json => {
+            console.log(json.id);
         });
     });
 
