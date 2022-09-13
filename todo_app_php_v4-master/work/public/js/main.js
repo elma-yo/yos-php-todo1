@@ -12,8 +12,6 @@
                     token: checkbox.dataset.token,
                 }),
             });
-
-            checkbox.nextElementSibling.classList.toggle('done');
         });
     });
 
