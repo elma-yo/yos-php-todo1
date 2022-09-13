@@ -5,6 +5,14 @@
     checkboxes.forEach(checkbox => {
         checkbox.addEventListener('change', () => {
             checkbox.parentNode.submit();
+                const url = '?action=toggle';
+                const option = {
+                    method: 'POST',
+                    body: new URLSearchParams({
+                        id: ,
+                        token: ,
+                    }),
+                }
                 fetch(url, option);
         });
     });
