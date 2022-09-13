@@ -4,6 +4,7 @@
     const checkboxes = document.querySelectorAll('input[type="checkbox"]');
     checkboxes.forEach(checkbox => {
         checkbox.addEventListener('change', () => {
+            // fetch(url, options);
             fetch('?action=toggle', {
                 method: 'POST',
                 body: new URLSearchParams({
@@ -11,6 +12,8 @@
                     token: checkbox.dataset.token,
                 }),
             });
+
+            checkbox.nextElementSibling.classList.toggle('done');
         });
     });
 
