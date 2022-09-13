@@ -2,6 +2,9 @@
 
 {
     const token = document.querySelector('main').dataset.token;
+    const input = document.querySelector('[name="title"]');
+
+    input.focus();
 
     document.querySelector('form').addEventListener('submit', e => {
         e.preventDefault();
@@ -9,7 +12,7 @@
         fetch('?action=add', {
             method: 'POST',
             body: new URLSearchParams({
-                title: document.querySelector('[name="title').value,
+                title: input.value,
                 token: token,
             }),
         })
@@ -17,6 +20,11 @@
         .then(json => {
             console.log(json.id);
         });
+
+        input.value = '';
+        input.focus();
+
+        console.log('Finish!');
     });
 
     const checkboxes = document.querySelectorAll('input[type="checkbox"]');
